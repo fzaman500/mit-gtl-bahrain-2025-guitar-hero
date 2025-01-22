@@ -1,4 +1,7 @@
-import processing.serial.*; //<>//
+//adapted from stray basilisk's code //<>//
+//https://github.com/JasonMDavey/coding-from-scratch
+
+import processing.serial.*;
 
 import processing.sound.*;
 
@@ -45,6 +48,7 @@ int comboUpCounter = 0;
 
 void setup() {
   //serial
+  println(Serial.list());
   String portName = Serial.list()[3]; //change the 0 to a 1 or 2 etc. to match your port
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil(lf);
@@ -61,7 +65,7 @@ void setup() {
   musicTrack = new SoundFile(this, "music.wav");
   
   // Load track metadata
-  trackData = new TrackData("/Users/STEAM/Documents/Processing/rhythmgame/data/trackinfo.txt");
+  trackData = new TrackData("/Users/STEAM/mit-gtl-bahrain-2025-guitar-hero/Processing/rhythmgame/data/trackinfo.txt");
   
   //musicTrack.jump(30);
   // Start the music!
